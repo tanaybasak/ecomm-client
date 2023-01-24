@@ -48,7 +48,7 @@ const SingleProduct = () => {
             <div className="layout">
                 <div className="single-product-page">
                     <div className="left">
-                      <img src={products && process.env.REACT_APP_DEV_URL + products.img.data[0].attributes.url} alt="" />
+                      <img src={products &&  products.img.data[0].attributes.url} alt="" />
                     </div>
                     <div className="right">
                         {products && <>

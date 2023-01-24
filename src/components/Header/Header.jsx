@@ -10,14 +10,14 @@ import { Context } from "../../utils/Context";
 const Header = () => {
     const [scrolled, setScrolled] = useState(false);
     // const [showCart, setShowCart] = useState(false);
-    const [showSearch, setShowSearch] = useState(false);
+    const [searchModal, setSearchModal] = useState(false);
     const { cartCount, showCart, setShowCart } = useContext(Context);
 
     const navigate =  useNavigate();
     
     const handleScroll = () => {
         const offset = window.scrollY;
-        if (offset > 20) {
+        if (offset > 200) {
             setScrolled(true);
         } else {
             setScrolled(false);
@@ -39,7 +39,7 @@ const Header = () => {
                 </ul>
                 <div className="center"  onClick={() => navigate('/')}>Expo</div>
                 <div className="right">
-                    <TbSearch  onClick={() => setShowSearch(true)}/>
+                    <TbSearch  onClick={() => setSearchModal(true)}/>
                     <AiOutlineHeart />
                     <span className="cart-icon" onClick={() => setShowCart(true)}>
                         <CgShoppingCart />
@@ -49,7 +49,7 @@ const Header = () => {
             </div>
         </header>
        {showCart &&  <Cart setShowCart={setShowCart}/> }
-       {showSearch &&  <Search setShowSearch={setShowSearch}/> }
+       {searchModal && <Search setSearchModal={setSearchModal} />}
     </>;
 };
 
