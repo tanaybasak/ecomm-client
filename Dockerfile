@@ -1,9 +1,9 @@
 FROM node:alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Installing dependencies
-COPY package.json ./
+COPY package.json .
 
 RUN npm install
 
@@ -11,4 +11,4 @@ RUN npm install
 COPY . .
 
 # Starting our application
-CMD npm start
+CMD ["npm", "start"]
